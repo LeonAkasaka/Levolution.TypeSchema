@@ -6,7 +6,7 @@ namespace Levolution.TypeSchema.DotNet
     /// <summary>
     /// 
     /// </summary>
-    public class ClassType : ValueType
+    public class ClassType : ReferenceType
     {
         /// <summary>
         /// 
