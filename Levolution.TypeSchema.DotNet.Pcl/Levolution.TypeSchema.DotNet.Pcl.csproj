@@ -41,6 +41,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicalMemberExtensions.cs" />
+    <Compile Include="LogicalTypeExtensions.cs" />
     <Compile Include="LogicalType\ClassType.cs" />
     <Compile Include="LogicalType\DelegateType.cs" />
     <Compile Include="LogicalType\DotNetProperty.cs" />
