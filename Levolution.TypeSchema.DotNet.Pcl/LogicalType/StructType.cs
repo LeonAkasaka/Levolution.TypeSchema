@@ -13,6 +13,12 @@ namespace Levolution.TypeSchema.DotNet
         /// </summary>
         public IEnumerable<ParameterType> ParameterTypes { get; }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<InterfaceType> Interfaces { get; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,9 +27,25 @@ namespace Levolution.TypeSchema.DotNet
         {
         }
 
-        public StructType(string name, IEnumerable<ParameterType> parameterTypes) : base(name)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parameterTypes"></param>
+        public StructType(string name, IEnumerable<ParameterType> parameterTypes) : this(name, parameterTypes, Enumerable.Empty<InterfaceType>())
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parameterTypes"></param>
+        /// <param name="interfaces"></param>
+        public StructType(string name, IEnumerable<ParameterType> parameterTypes, IEnumerable<InterfaceType> interfaces) : base(name)
         {
             ParameterTypes = parameterTypes;
+            Interfaces = interfaces;
         }
     }
 }
