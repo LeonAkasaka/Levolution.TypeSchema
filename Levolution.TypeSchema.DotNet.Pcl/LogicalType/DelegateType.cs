@@ -1,4 +1,4 @@
-﻿namespace Levolution.TypeSchema.DotNet.LogicalType
+﻿namespace Levolution.TypeSchema.DotNet
 {
     /// <summary>
     /// 
