@@ -12,7 +12,7 @@ namespace Levolution.TypeSchema.DotNet
         /// <summary>
         /// 
         /// </summary>
-        ICollection<DotNetMember> Members { get; } = new ObservableCollection<DotNetMember>();
+        public ICollection<DotNetMember> Members { get; } = new ObservableCollection<DotNetMember>();
 
         /// <summary>
         /// 
