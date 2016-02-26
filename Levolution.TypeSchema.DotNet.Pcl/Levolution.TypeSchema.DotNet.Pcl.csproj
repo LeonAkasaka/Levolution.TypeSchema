@@ -59,7 +59,17 @@
     <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="project.json" />
+    <Reference Include="Levolution.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Levolution.Core.0.0.1.5\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Levolution.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Levolution.Data.0.0.1.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
