@@ -60,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Levolution.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Levolution.Core.0.0.1.5\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Core.dll</HintPath>
+      <HintPath>..\packages\Levolution.Core.0.0.1.6\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Levolution.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Levolution.Data.0.0.1.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Data.dll</HintPath>
+      <HintPath>..\packages\Levolution.Data.0.0.1.4\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Levolution.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
