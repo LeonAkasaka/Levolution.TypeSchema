@@ -58,11 +58,11 @@ namespace Levolution.TypeSchema.DotNet
 
         private static ClassType CreateClassType(TypeInfo typeInfo)
         {
-            var parameterTypes = GetArgumentParameterTypes(typeInfo);
+            var parameterTypes = GetParameterTypes(typeInfo);
             var baseType = GetBaseType(typeInfo);
             var interfaceTypes = GetImplementedInterfaceTypes(typeInfo);
 
-            var logicalType = new ClassType(typeInfo.Name, parameterTypes, baseType, interfaceTypes);
+            var logicalType = new ClassType(typeInfo.GetNameWithoutArity(), parameterTypes, baseType, interfaceTypes);
             foreach (var member in GetMembers(typeInfo))
             {
                 logicalType.Members.Add(member);
@@ -76,22 +76,22 @@ namespace Levolution.TypeSchema.DotNet
 
         private static InterfaceType CreateInterfaceType(TypeInfo typeInfo)
         {
-            var parameterTypes = GetArgumentParameterTypes(typeInfo);
+            var parameterTypes = GetParameterTypes(typeInfo);
             var interfaceTypes = GetImplementedInterfaceTypes(typeInfo);
-            var logicalType = new InterfaceType(typeInfo.Name, parameterTypes, interfaceTypes);
+            var logicalType = new InterfaceType(typeInfo.GetNameWithoutArity(), parameterTypes, interfaceTypes);
             return logicalType;
         }
 
         private static ParameterType CreateParameterType(TypeInfo typeInfo)
         {
-            var logicalType = new ParameterType(typeInfo.Name);
+            var logicalType = new ParameterType(typeInfo.GetNameWithoutArity());
             return logicalType;
         }
 
         private static StructType CreateStructType(TypeInfo typeInfo)
         {
-            var parameterTypes = GetArgumentParameterTypes(typeInfo);
-            var logicalType = new StructType(typeInfo.Name, parameterTypes);
+            var parameterTypes = GetParameterTypes(typeInfo);
+            var logicalType = new StructType(typeInfo.GetNameWithoutArity(), parameterTypes);
             return logicalType;
         }
 
@@ -101,7 +101,7 @@ namespace Levolution.TypeSchema.DotNet
         private static ClassType GetBaseType(TypeInfo typeInfo)
             => typeInfo.BaseType != null ? CreateClassType(typeInfo.BaseType.GetTypeInfo()) : null;
 
-        private static IEnumerable<ParameterType> GetArgumentParameterTypes(TypeInfo typeInfo)
-            => typeInfo.GenericTypeArguments.Select(x => CreateParameterType(x.GetTypeInfo()));
+        private static IEnumerable<ParameterType> GetParameterTypes(TypeInfo typeInfo)
+            => typeInfo.GenericTypeArguments.Concat(typeInfo.GenericTypeParameters).Select(x => CreateParameterType(x.GetTypeInfo()));
     }
 }

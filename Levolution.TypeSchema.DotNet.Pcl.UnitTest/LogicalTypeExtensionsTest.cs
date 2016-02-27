@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 
 namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
@@ -37,18 +38,30 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
     {
     }
 
+    interface Interface9<T1, T2, T3>
+    {
+    }
+
+    interface Interface10<T1, T2> : Interface9<T1, T2, int>
+    {
+    }
+
+    interface Interface11<T> : Interface9<T, int, T>
+    {
+    }
+
     #endregion
 
     [TestClass]
     public class LogicalTypeExtensionsTest
     {
         private TLogicalType GetTestType<TType, TLogicalType>() where TLogicalType : DotNetType
+            => GetTestType<TLogicalType>(typeof(TType));
+
+        private TLogicalType GetTestType<TLogicalType>(Type type) where TLogicalType : DotNetType
         {
-            var type = typeof(TType);
             var logicalType = type.ToLogicalType();
-
             Assert.IsInstanceOfType(logicalType, typeof(TLogicalType));
-
             return (TLogicalType)logicalType;
         }
 
@@ -132,8 +145,18 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
         [TestMethod]
         public void Interface6ToLogicalTypeTest()
         {
-            var interfaceType = GetTestType<Interface6<int>, InterfaceType>();
-            Interface6Test<int>(interfaceType);
+            var interfaceTypeWithoutArgs = GetTestType<InterfaceType>(typeof(Interface6<>));
+            Interface6Test(interfaceTypeWithoutArgs);
+        }
+        private void Interface6Test(InterfaceType interfaceType)
+        {
+            Assert.IsNotNull(interfaceType);
+            Assert.AreEqual(nameof(Interface6<object>), interfaceType.Name);
+
+            var t = interfaceType.ParameterTypes.First();
+            Assert.AreEqual(typeof(Interface6<>).GetGenericArguments().First().Name, t.Name);
+
+            Assert.IsFalse(interfaceType.BaseInterfaces.Any());
         }
         private void Interface6Test<T>(InterfaceType interfaceType)
         {
@@ -141,7 +164,7 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
             Assert.AreEqual(nameof(Interface6<T>), interfaceType.Name);
 
             var t = interfaceType.ParameterTypes.First();
-            Assert.AreEqual(typeof(Interface6<>).GetGenericArguments().First().Name, t);
+            Assert.AreEqual(typeof(Interface6<T>).GetGenericArguments().First().Name, t.Name);
 
             Assert.IsFalse(interfaceType.BaseInterfaces.Any());
         }
@@ -149,17 +172,17 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
         [TestMethod]
         public void Interface7ToLogicalTypeTest()
         {
-            var interfaceType = GetTestType<Interface7<int>, InterfaceType>();
-            Interface7Test<int>(interfaceType);
+            var interfaceType = GetTestType<InterfaceType>(typeof(Interface7<>));
+            Interface7Test(interfaceType);
         }
-        private void Interface7Test<T>(InterfaceType interfaceType)
+        private void Interface7Test(InterfaceType interfaceType)
         {
             Assert.IsNotNull(interfaceType);
-            Assert.AreEqual(nameof(Interface7<T>), interfaceType.Name);
+            Assert.AreEqual(nameof(Interface7<object>), interfaceType.Name);
 
             var t = interfaceType.ParameterTypes.First();
-            Assert.AreEqual(typeof(Interface7<>).GetGenericArguments().First().Name, t);
-            Interface6Test<T>(interfaceType.BaseInterfaces.First());
+            Assert.AreEqual(typeof(Interface7<>).GetGenericArguments().First().Name, t.Name);
+            Interface6Test(interfaceType.BaseInterfaces.First());
         }
 
         [TestMethod]
