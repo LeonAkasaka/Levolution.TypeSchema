@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
 {
@@ -63,6 +64,20 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
             var logicalType = type.ToLogicalType();
             Assert.IsInstanceOfType(logicalType, typeof(TLogicalType));
             return (TLogicalType)logicalType;
+        }
+
+
+        [TestMethod]
+        public void BaseTypeTest()
+        {
+            var boolType = GetTestType<bool, StructType>();
+            var charType = GetTestType<char, StructType>();
+            var shortType = GetTestType<short, StructType>();
+            var intType = GetTestType<int, StructType>();
+            var longType = GetTestType<long, StructType>();
+            var floatType = GetTestType<float, StructType>();
+            var doubleType = GetTestType<double, StructType>();
+            var stringType = GetTestType<string, ClassType>();
         }
 
         [TestMethod]
@@ -198,6 +213,82 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
             Assert.IsFalse(interfaceType.ParameterTypes.Any());
 
             Interface6Test<int>(interfaceType.BaseInterfaces.First());
+        }
+
+        [TestMethod]
+        public void Interface9ToLogicalTypeTest()
+        {
+            Interface9Test(GetTestType<InterfaceType>(typeof(Interface9<,,>)));
+            Interface9Test<int, string, Interface6<bool>>(GetTestType<InterfaceType>(typeof(Interface9<int, string, Interface6<bool>>)));
+        }
+
+        private void Interface9Test(InterfaceType interfaceType)
+        {
+            Assert.IsNotNull(interfaceType);
+            Assert.AreEqual(nameof(Interface9<object, object, object>), interfaceType.Name);
+
+            var sourceNames = typeof(Interface9<,,>).GetTypeInfo().
+                GenericTypeParameters.Select(x => x.ToLogicalType().Name).ToArray();
+            var distNames = interfaceType.ParameterTypes.Select(x => x.Name).ToArray();
+            for (var i = 0; i < sourceNames.Length; i++)
+            {
+                Assert.AreEqual(sourceNames[i], distNames[i]);
+            }
+
+            Assert.IsFalse(interfaceType.BaseInterfaces.Any());
+        }
+        private void Interface9Test<T1, T2, T3>(InterfaceType interfaceType)
+        {
+            Assert.IsNotNull(interfaceType);
+            Assert.AreEqual(nameof(Interface9<T1, T2, T3>), interfaceType.Name);
+
+            var sourceNames = typeof(Interface9<T1, T2, T3>).
+                GenericTypeArguments.Select(x => x.ToLogicalType().Name).ToArray();
+            var distNames = interfaceType.ParameterTypes.Select(x => x.Name).ToArray();
+            for (var i = 0; i < sourceNames.Length; i++)
+            {
+                Assert.AreEqual(sourceNames[i], distNames[i]);
+            }
+
+            Assert.IsFalse(interfaceType.BaseInterfaces.Any());
+        }
+
+        [TestMethod]
+        public void Interface10ToLogicalTypeTest()
+        {
+            Interface10Test(GetTestType<InterfaceType>(typeof(Interface10<,>)));
+            Interface10Test<int, string>(GetTestType<InterfaceType>(typeof(Interface10<int, string>)));
+        }
+
+        private void Interface10Test(InterfaceType interfaceType)
+        {
+            Assert.IsNotNull(interfaceType);
+            Assert.AreEqual(nameof(Interface10<object, object>), interfaceType.Name);
+
+            var sourceNames = typeof(Interface10<,>).GetTypeInfo().
+                GenericTypeParameters.Select(x => x.ToLogicalType().Name).ToArray();
+            var distNames = interfaceType.ParameterTypes.Select(x => x.Name).ToArray();
+            for (var i = 0; i < sourceNames.Length; i++)
+            {
+                Assert.AreEqual(sourceNames[i], distNames[i]);
+            }
+
+            Interface9Test(interfaceType.BaseInterfaces.First());
+        }
+        private void Interface10Test<T1, T2>(InterfaceType interfaceType)
+        {
+            Assert.IsNotNull(interfaceType);
+            Assert.AreEqual(nameof(Interface10<T1, T2>), interfaceType.Name);
+
+            var sourceNames = typeof(Interface10<T1, T2>).
+                GenericTypeArguments.Select(x => x.ToLogicalType().Name).ToArray();
+            var distNames = interfaceType.ParameterTypes.Select(x => x.Name).ToArray();
+            for (var i = 0; i < sourceNames.Length; i++)
+            {
+                Assert.AreEqual(sourceNames[i], distNames[i]);
+            }
+
+            Interface9Test<T1, T2, int>(interfaceType.BaseInterfaces.First());
         }
     }
 }
