@@ -14,6 +14,11 @@ namespace Levolution.TypeSchema.DotNet
         /// <summary>
         /// 
         /// </summary>
+        private static Dictionary<TypeInfo, DotNetType> _typeRepository = new Dictionary<TypeInfo, DotNetType>();
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         public static DotNetType ToLogicalType(this Type type)
@@ -26,6 +31,9 @@ namespace Levolution.TypeSchema.DotNet
         /// <returns></returns>
         public static DotNetType ToLogicalType(this TypeInfo typeInfo)
         {
+            DotNetType existingType;
+            if (_typeRepository.TryGetValue(typeInfo, out existingType)) { return existingType; }
+
             var logicalType = typeInfo.IsClass ? CreateClassType(typeInfo)
                 : typeInfo.IsGenericParameter ? CreateParameterType(typeInfo)
                 : typeInfo.IsInterface ? CreateInterfaceType(typeInfo)
@@ -63,6 +71,8 @@ namespace Levolution.TypeSchema.DotNet
             var interfaceTypes = GetImplementedInterfaceTypes(typeInfo);
 
             var logicalType = new ClassType(typeInfo.GetNameWithoutArity(), parameterTypes, baseType, interfaceTypes);
+            if (!_typeRepository.ContainsKey(typeInfo)) { _typeRepository.Add(typeInfo, logicalType); }
+
             foreach (var member in GetMembers(typeInfo))
             {
                 logicalType.Members.Add(member);
@@ -79,12 +89,14 @@ namespace Levolution.TypeSchema.DotNet
             var parameterTypes = GetParameterTypes(typeInfo);
             var interfaceTypes = GetImplementedInterfaceTypes(typeInfo);
             var logicalType = new InterfaceType(typeInfo.GetNameWithoutArity(), parameterTypes, interfaceTypes);
+            if (!_typeRepository.ContainsKey(typeInfo)) { _typeRepository.Add(typeInfo, logicalType); }
             return logicalType;
         }
 
         private static ParameterType CreateParameterType(TypeInfo typeInfo)
         {
             var logicalType = new ParameterType(typeInfo.GetNameWithoutArity());
+            if (!_typeRepository.ContainsKey(typeInfo)) { _typeRepository.Add(typeInfo, logicalType); }
             return logicalType;
         }
 
@@ -92,6 +104,7 @@ namespace Levolution.TypeSchema.DotNet
         {
             var parameterTypes = GetParameterTypes(typeInfo);
             var logicalType = new StructType(typeInfo.GetNameWithoutArity(), parameterTypes);
+            if (!_typeRepository.ContainsKey(typeInfo)) { _typeRepository.Add(typeInfo, logicalType); }
             return logicalType;
         }
 
