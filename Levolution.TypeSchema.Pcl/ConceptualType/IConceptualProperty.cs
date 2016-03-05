@@ -7,8 +7,14 @@ namespace Levolution.TypeSchema.ConceptualType
     /// </summary>
     public interface IConceptualProperty
     {
+        /// <summary>
+        /// 
+        /// </summary>
         string Name { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         IEnumerable<IConceptualAnnotation> Annotations { get; }
     }
 }

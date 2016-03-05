@@ -34,12 +34,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ConceptualType\IArrayType.cs" />
+    <Compile Include="ConceptualType\ICharType.cs" />
     <Compile Include="ConceptualType\IConceptualAnnotation.cs" />
     <Compile Include="ConceptualType\IConceptualType.cs" />
+    <Compile Include="ConceptualType\IIntegerType.cs" />
+    <Compile Include="ConceptualType\INumberType.cs" />
+    <Compile Include="ConceptualType\IStringType.cs" />
+    <Compile Include="ConceptualType\PrimitiveType.cs" />
     <Compile Include="LogicalType\ILogicalMember.cs" />
     <Compile Include="LogicalType\ILogicalProperty.cs" />
     <Compile Include="LogicalType\ILogicalType.cs" />
     <Compile Include="ConceptualType\IConceptualProperty.cs" />
+    <Compile Include="ConceptualType\IntegerSign.cs" />
+    <Compile Include="ConceptualType\IPrimitiveType.cs" />
+    <Compile Include="ConceptualType\PrimitiveTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
