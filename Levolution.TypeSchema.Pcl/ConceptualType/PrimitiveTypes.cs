@@ -64,10 +64,5 @@
         /// 
         /// </summary>
         public static readonly IFloatingPointType DoubleType = new FloatingPointType("Double", 8);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly IStringType StringType = new StringType("String", (CharType)CharType);
     }
 }
