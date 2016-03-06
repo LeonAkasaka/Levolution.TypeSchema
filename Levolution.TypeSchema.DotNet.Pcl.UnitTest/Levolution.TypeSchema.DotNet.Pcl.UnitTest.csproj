@@ -51,7 +51,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="SystemTypeToLogicalTypeTest.cs" />
+    <Compile Include="ConceptualType\TypeExtensionsTest.cs" />
+    <Compile Include="LogicalType\TypeExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
