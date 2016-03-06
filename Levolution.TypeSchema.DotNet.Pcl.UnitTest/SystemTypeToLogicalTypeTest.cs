@@ -54,7 +54,7 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
     #endregion
 
     [TestClass]
-    public class LogicalTypeExtensionsTest
+    public class SystemTypeToLogicalTypeTest
     {
         private TLogicalType GetTestType<TType, TLogicalType>() where TLogicalType : DotNetType
             => GetTestType<TLogicalType>(typeof(TType));
@@ -65,8 +65,7 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
             Assert.IsInstanceOfType(logicalType, typeof(TLogicalType));
             return (TLogicalType)logicalType;
         }
-
-
+        
         [TestMethod]
         public void BaseTypeTest()
         {
