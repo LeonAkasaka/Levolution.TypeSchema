@@ -53,11 +53,11 @@ namespace Levolution.TypeSchema.ConceptualType
         }
     }
 
-    class NumberType : PrimitiveType, INumberType
+    class FloatingPointType : PrimitiveType, IFloatingPointType
     {
         public int Size { get; private set; }
 
-        public NumberType(string name, int size) : base(name)
+        public FloatingPointType(string name, int size) : base(name)
         {
             Size = size;
         }

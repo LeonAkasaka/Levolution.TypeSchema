@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public static class PrimitiveLogicalTypes
+    public static class PrimitiveTypes
     {
         /// <summary>
         /// 
@@ -58,12 +58,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public static readonly INumberType SingleType = new NumberType("Single", 4);
+        public static readonly IFloatingPointType SingleType = new FloatingPointType("Single", 4);
 
         /// <summary>
         /// 
         /// </summary>
-        public static readonly INumberType DoubleType = new NumberType("Double", 8);
+        public static readonly IFloatingPointType DoubleType = new FloatingPointType("Double", 8);
 
         /// <summary>
         /// 

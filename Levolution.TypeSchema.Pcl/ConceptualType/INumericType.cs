@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface INumberType
+    public interface INumericType : IPrimitiveType
     {
         /// <summary>
         /// 

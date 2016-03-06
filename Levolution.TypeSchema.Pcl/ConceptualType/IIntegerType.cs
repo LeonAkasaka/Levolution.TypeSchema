@@ -3,13 +3,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IIntegerType : IPrimitiveType
+    public interface IIntegerType : INumericType
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        int Size { get; }
-
         /// <summary>
         /// 
         /// </summary>

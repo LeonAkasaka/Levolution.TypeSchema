@@ -38,8 +38,9 @@
     <Compile Include="ConceptualType\ICharType.cs" />
     <Compile Include="ConceptualType\IConceptualAnnotation.cs" />
     <Compile Include="ConceptualType\IConceptualType.cs" />
+    <Compile Include="ConceptualType\IFloatingPointType.cs" />
     <Compile Include="ConceptualType\IIntegerType.cs" />
-    <Compile Include="ConceptualType\INumberType.cs" />
+    <Compile Include="ConceptualType\INumericType.cs" />
     <Compile Include="ConceptualType\IStringType.cs" />
     <Compile Include="ConceptualType\PrimitiveType.cs" />
     <Compile Include="LogicalType\ILogicalMember.cs" />
