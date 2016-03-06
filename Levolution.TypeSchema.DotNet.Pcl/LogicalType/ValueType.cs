@@ -1,4 +1,4 @@
-﻿namespace Levolution.TypeSchema.DotNet
+﻿namespace Levolution.TypeSchema.LogicalType.DotNet
 {
     public class ValueType : DotNetType
     {

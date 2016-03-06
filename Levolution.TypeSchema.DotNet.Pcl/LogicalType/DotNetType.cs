@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Levolution.TypeSchema.DotNet
+namespace Levolution.TypeSchema.LogicalType.DotNet
 {
     /// <summary>
     /// 

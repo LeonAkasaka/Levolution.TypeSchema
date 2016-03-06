@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
+namespace Levolution.TypeSchema.LogicalType.DotNet.Pcl.UnitTest
 {
     #region Types for logical types unit tests.
 
@@ -65,7 +65,7 @@ namespace Levolution.TypeSchema.DotNet.Pcl.UnitTest
             Assert.IsInstanceOfType(logicalType, typeof(TLogicalType));
             return (TLogicalType)logicalType;
         }
-        
+
         [TestMethod]
         public void BaseTypeTest()
         {

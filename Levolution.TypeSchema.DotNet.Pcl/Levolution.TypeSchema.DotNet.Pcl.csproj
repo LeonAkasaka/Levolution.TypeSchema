@@ -41,8 +41,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogicalMemberExtensions.cs" />
-    <Compile Include="LogicalTypeExtensions.cs" />
+    <Compile Include="LogicalType\LogicalMemberExtensions.cs" />
+    <Compile Include="LogicalType\LogicalTypeExtensions.cs" />
     <Compile Include="LogicalType\ClassType.cs" />
     <Compile Include="LogicalType\DelegateType.cs" />
     <Compile Include="LogicalType\DotNetProperty.cs" />
@@ -56,7 +56,7 @@
     <Compile Include="LogicalType\ReferenceType.cs" />
     <Compile Include="LogicalType\StructType.cs" />
     <Compile Include="LogicalType\ValueType.cs" />
-    <Compile Include="TypeExtensions.cs" />
+    <Compile Include="LogicalType\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Levolution.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -71,6 +71,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

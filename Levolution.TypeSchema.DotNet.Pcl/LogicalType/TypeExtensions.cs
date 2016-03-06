@@ -4,7 +4,7 @@ using System.Reflection;
 using Levolution.Core.Types;
 using System.Collections.Generic;
 
-namespace Levolution.TypeSchema.DotNet
+namespace Levolution.TypeSchema.LogicalType.DotNet
 {
     /// <summary>
     /// 

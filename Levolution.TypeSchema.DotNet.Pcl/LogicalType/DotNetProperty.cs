@@ -1,6 +1,6 @@
 ﻿using Levolution.TypeSchema.LogicalType;
 
-namespace Levolution.TypeSchema.DotNet
+namespace Levolution.TypeSchema.LogicalType.DotNet
 {
     /// <summary>
     /// 
