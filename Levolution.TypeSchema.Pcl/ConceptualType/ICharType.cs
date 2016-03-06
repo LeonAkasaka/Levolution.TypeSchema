@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface ICharType
+    public interface ICharType : IPrimitiveType
     {
         /// <summary>
         /// 
