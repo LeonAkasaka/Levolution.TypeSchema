@@ -10,6 +10,16 @@ namespace Levolution.TypeSchema.ConceptualType
         /// <summary>
         /// 
         /// </summary>
+        IConceptualType DeclaringType { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        IConceptualType PropertyType { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         string Name { get; }
 
         /// <summary>
