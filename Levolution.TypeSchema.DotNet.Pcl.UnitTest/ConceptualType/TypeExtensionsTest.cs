@@ -10,17 +10,6 @@ namespace Levolution.TypeSchema.ConceptualType.DotNet.Pcl.UnitTest
     [TestClass]
     public class TypeExtensionsTest
     {
-        [ConceptualType]
-        class A
-        {
-            [ConceptualProperty]
-            public int Field1;
-
-            [ConceptualProperty]
-            public string Field2;
-        }
-
-
         [TestMethod]
         public void PrimitiveTypeTest()
         {
@@ -37,5 +26,24 @@ namespace Levolution.TypeSchema.ConceptualType.DotNet.Pcl.UnitTest
             Assert.AreEqual(PrimitiveTypes.SingleType, typeof(float).ToConceptualType());
             Assert.AreEqual(PrimitiveTypes.DoubleType, typeof(double).ToConceptualType());
         }
+
+        [ConceptualType]
+        class SourceModel
+        {
+            [ConceptualProperty]
+            public int Field1 = 0;
+
+            [ConceptualProperty]
+            public string Field2 = null;
+        }
+
+        [TestMethod]
+        public void TypeToConceptualTypeTest()
+        {
+            var ct = typeof(SourceModel).ToConceptualType();
+            Assert.AreEqual(nameof(SourceModel), ct.Name);
+
+        }
+
     }
 }

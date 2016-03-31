@@ -39,9 +39,9 @@ namespace Levolution.TypeSchema.ConceptualType.DotNet
         {
             IConceptualType primitiveType;
             if (_primitiveTypes.TryGetValue(typeInfo, out primitiveType)) { return primitiveType; }
-            
+
             // TODO: Create a conceptual type from Type.
-            return null;
+            return TypeFactory.ConceptualType(typeInfo.Name); ;
         }
 
     }
