@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Levolution.Data.Name;
+using System.Collections.Generic;
 
 namespace Levolution.TypeSchema.ConceptualType
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IConceptualType
+    public interface IConceptualType : INameable
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        string Name { get; }
-
         /// <summary>
         /// 
         /// </summary>

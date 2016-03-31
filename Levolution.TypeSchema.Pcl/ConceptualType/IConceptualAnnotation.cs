@@ -1,9 +1,11 @@
-﻿namespace Levolution.TypeSchema.ConceptualType
+﻿using Levolution.Data.Name;
+
+namespace Levolution.TypeSchema.ConceptualType
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IConceptualAnnotation
+    public interface IConceptualAnnotation : INameable
     {
     }
 }

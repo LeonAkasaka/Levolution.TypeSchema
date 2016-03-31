@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Levolution.Data.Name;
+using System.Collections.Generic;
 
 namespace Levolution.TypeSchema.ConceptualType
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IConceptualProperty
+    public interface IConceptualProperty : INameable
     {
         /// <summary>
         /// 
@@ -16,11 +17,6 @@ namespace Levolution.TypeSchema.ConceptualType
         /// 
         /// </summary>
         IConceptualType PropertyType { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        string Name { get; }
 
         /// <summary>
         /// 
