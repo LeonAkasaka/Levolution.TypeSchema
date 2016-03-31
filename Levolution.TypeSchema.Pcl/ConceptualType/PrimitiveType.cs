@@ -9,7 +9,7 @@ namespace Levolution.TypeSchema.ConceptualType
 
         public string Name { get; private set; }
 
-        public virtual IEnumerable<IConceptualAnnotation> IAnnotations => Enumerable.Empty<IConceptualAnnotation>();
+        public virtual IEnumerable<IConceptualAnnotation> Annotations => Enumerable.Empty<IConceptualAnnotation>();
 
         public IEnumerable<IConceptualProperty> Properties => Enumerable.Empty<IConceptualProperty>();
 

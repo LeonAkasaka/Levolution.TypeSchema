@@ -11,7 +11,7 @@ namespace Levolution.TypeSchema.ConceptualType
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<IConceptualAnnotation> IAnnotations { get; }
+        IEnumerable<IConceptualAnnotation> Annotations { get; }
 
         /// <summary>
         /// 
