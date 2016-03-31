@@ -5,7 +5,7 @@ namespace Levolution.TypeSchema.ConceptualType
     /// <summary>
     /// 
     /// </summary>
-    public interface IConceptualAnnotation : INameable
+    public interface IConceptualAnnotation
     {
     }
 }
