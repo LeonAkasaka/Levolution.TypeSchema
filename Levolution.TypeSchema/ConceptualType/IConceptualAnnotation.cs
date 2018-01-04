@@ -1,6 +1,4 @@
-﻿using Levolution.Data.Name;
-
-namespace Levolution.TypeSchema.ConceptualType
+﻿namespace Levolution.TypeSchema.ConceptualType
 {
     /// <summary>
     /// 

@@ -109,7 +109,7 @@ namespace Levolution.TypeSchema.LogicalType.DotNet
         }
 
         private static IEnumerable<InterfaceType> GetImplementedInterfaceTypes(TypeInfo typeInfo)
-            => typeInfo.GetAllImplementedInterfaces().Select(x => CreateInterfaceType(x.GetTypeInfo()));
+            => typeInfo.ImplementedInterfaces.Select(x => CreateInterfaceType(x.GetTypeInfo()));
 
         private static ClassType GetBaseType(TypeInfo typeInfo)
             => typeInfo.BaseType != null ? CreateClassType(typeInfo.BaseType.GetTypeInfo()) : null;
