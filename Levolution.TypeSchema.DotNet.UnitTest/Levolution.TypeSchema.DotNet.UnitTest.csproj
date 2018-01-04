@@ -55,7 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConceptualType\TypeExtensionsTest.cs" />
-    <Compile Include="LogicalType\TypeExtensionsTest.cs" />
+    <Compile Include="LogicalType\GenericInterfaceTest.cs" />
+    <Compile Include="LogicalType\LogicalTypeTest.cs" />
+    <Compile Include="LogicalType\PlainInterfaceTest.cs" />
+    <Compile Include="LogicalType\SubInterfaceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
