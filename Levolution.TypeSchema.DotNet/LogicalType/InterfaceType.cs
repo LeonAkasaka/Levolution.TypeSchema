@@ -31,7 +31,6 @@ namespace Levolution.TypeSchema.LogicalType.DotNet
         /// <param name="parameterTypes"></param>
         public InterfaceType(string name, IEnumerable<ParameterType> parameterTypes) : this(name, parameterTypes, Enumerable.Empty<InterfaceType>()) { }
 
-
         /// <summary>
         /// 
         /// </summary>

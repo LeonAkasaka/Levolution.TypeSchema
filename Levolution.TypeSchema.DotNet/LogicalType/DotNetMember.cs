@@ -14,7 +14,7 @@ namespace Levolution.TypeSchema.LogicalType.DotNet
         /// <summary>
         /// 
         /// </summary>
-        ILogicalType ILogicalMember.DeclaredType => DeclaredType;
+        ILogicalType ILogicalMember.DeclaringType => DeclaredType;
 
         /// <summary>
         /// 
