@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Levolution.TypeSchema.ConceptualType.Impl
+﻿namespace Levolution.TypeSchema.ConceptualType.Impl
 {
     /// <summary>
     /// 

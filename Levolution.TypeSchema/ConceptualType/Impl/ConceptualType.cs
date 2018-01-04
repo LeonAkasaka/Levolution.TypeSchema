@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Levolution.Data.Name;
+﻿using System.Collections.Generic;
 
 namespace Levolution.TypeSchema.ConceptualType.Impl
 {
